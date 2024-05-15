@@ -1,11 +1,7 @@
 **2019年全年接待游客955.13万人次，旅游综合收入22.43亿元。**
 http://www.linzhou.gov.cn/sitesources/lzsrmzf/page_pc/ywdt/zwtt/articleb27fe5926a87471dba434f7bd09f29df.html
 
-![523a60b0eb08afdedd2d5b6ae7c5b29](D:\software\WeChat\data\WeChat Files\wxid_zehacqrh1n7522\FileStorage\Temp\523a60b0eb08afdedd2d5b6ae7c5b29.png)
-
-
-
-
+![042831bf28b637afb5c7c8ff48cab35](image/042831bf28b637afb5c7c8ff48cab35.png)
 
 
 
@@ -15,13 +11,7 @@ http://www.linzhou.gov.cn/sitesources/lzsrmzf/page_pc/ywdt/zwtt/articleb27fe5926
 
 http://www.linzhou.gov.cn/sitesources/lzsrmzf/page_pc/zwgk/fdzdgknr/zfgzbg/article84d81d7f8b2b43a2857809d465a6623f.html
 
-![042831bf28b637afb5c7c8ff48cab35](D:\software\WeChat\data\WeChat Files\wxid_zehacqrh1n7522\FileStorage\Temp\042831bf28b637afb5c7c8ff48cab35.png)
-
-
-
-
-
-
+![523a60b0eb08afdedd2d5b6ae7c5b29](image/523a60b0eb08afdedd2d5b6ae7c5b29.png)
 
 
 
@@ -29,7 +19,7 @@ http://www.linzhou.gov.cn/sitesources/lzsrmzf/page_pc/zwgk/fdzdgknr/zfgzbg/artic
 
 https://mp.weixin.qq.com/s/r4g2IuztGp0eccWoUs7a8w
 
-![image-20240515104139476](C:\Users\SongRunM\AppData\Roaming\Typora\typora-user-images\image-20240515104139476.png)
+![image-20240515104139476](image/image-20240515104139476.png)
 
 
 
@@ -49,7 +39,7 @@ https://mp.weixin.qq.com/s/r4g2IuztGp0eccWoUs7a8w
 
 https://mp.weixin.qq.com/s/9Xfh1JD5GfHlzG3wn36zTA
 
-![image-20240515104949234](C:\Users\SongRunM\AppData\Roaming\Typora\typora-user-images\image-20240515104949234.png)
+![image-20240515104949234](image/image-20240515104949234.png)
 
 
 
@@ -63,7 +53,7 @@ https://mp.weixin.qq.com/s/9Xfh1JD5GfHlzG3wn36zTA
 
 https://mp.weixin.qq.com/s/r4g2IuztGp0eccWoUs7a8w
 
-![image-20240515105541343](C:\Users\SongRunM\AppData\Roaming\Typora\typora-user-images\image-20240515105541343.png)
+![image-20240515105541343](image/image-20240515105541343.png)
 
 
 
@@ -75,6 +65,4 @@ https://mp.weixin.qq.com/s/r4g2IuztGp0eccWoUs7a8w
 
 **2023年以来，文旅消费持续复苏。“五一”假期，大峡谷景区迎来客流高峰。假期前四天，大峡谷接待游客约60000人次**
 
-https://mp.weixin.qq.com/s/D3Zk4_B6fc5EoxPNAIoCmw
-
-![1715741868316](D:\software\WeChat\data\WeChat Files\wxid_zehacqrh1n7522\FileStorage\Temp\1715741868316.png)
+![1715741868316](image/1715741868316-1715746038492-16.png)
