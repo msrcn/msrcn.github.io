@@ -65,6 +65,11 @@
                 timer = setInterval(() => {
                     count++;
                     document.getElementById('timeDisplay').innerText = count + ' 秒';
+                    if (count === 60) {
+                        alert('你是傻屌吧');
+                        clearInterval(timer);
+                        timer = null; // 允许重新启动计时器
+                    }
                 }, 1000);
             }
         }
