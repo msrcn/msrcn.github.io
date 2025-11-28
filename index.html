@@ -1,470 +1,102 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>炸毛羊挑战之金铲铲装备分类大师</title>
-    <style>
-	 /* 新增头像样式 */
-        .mini-avatar {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 1000;
-        }
-        .mini-avatar img {
-            width: 40px;  /* 更小的尺寸 */
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-color);
-            object-fit: cover;
-        }
-        .mini-avatar span {
-            font-size: 14px;
-            color: var(--primary-color);
-            font-weight: 500;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-	
-        :root {
-            --primary-color: #2c3e50;
-            --correct-color: #27ae60;
-            --wrong-color: #c0392b;
-        }
+<!-- 整体背景 -->
+<div style="
+    min-height: 100vh;
+    padding: 20px 0;
+    background: linear-gradient(135deg, #eef4ff, #eafaff 45%, #ffffff);
+    display: flex;
+    justify-content: center;
+">
+    <div style="width: 100%; max-width: 650px; padding: 0 16px; font-family: 'Segoe UI','Helvetica Neue',Arial,sans-serif;">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        .header {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-
-        .game-container {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 2rem;
-        }
-
-        .equipment-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        #currentEquipment {
-            width: 200px;
-            height: 200px;
-            object-fit: contain;
-            margin: 1rem 0;
-            transition: transform 0.3s;
-        }
-
-        #currentEquipment:hover {
-            transform: scale(1.05);
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        button {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s;
-            text-transform: uppercase;
-        }
-
-        #tankBtn {
-            background: var(--correct-color);
-            color: white;
-        }
-
-        #damageBtn {
-            background: var(--wrong-color);
-            color: white;
-        }
-
-        button:hover {
-            opacity: 0.9;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-        }
-
-        .stats-panel {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .progress-bar {
-            height: 10px;
-            background: #eee;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 1rem 0;
-        }
-
-        .progress {
-            height: 100%;
-            background: var(--primary-color);
-            transition: width 0.3s;
-        }
-
-        .feedback {
-            font-size: 1.2rem;
-            font-weight: bold;
-            min-height: 2rem;
-            margin: 1rem 0;
-        }
-
-        .correct { color: var(--correct-color); }
-        .wrong { color: var(--wrong-color); }
-
-        #equipmentName {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin: 1rem 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>金铲铲装备分类训练营之炸毛羊训练篇</h1>
-        <p>通过装备图片判断属于肉装还是输出装</p>
-    </div>
-	
-	    <!-- 新增迷你头像（插入在body最开头） -->
-    <div class="mini-avatar">
-        <img src="https://hkrctdcdn.shedusoft.com/storage/teachersMoralities/file/微信图片_20250423134823_301745387448606.jpg" alt="挑战者">
-        <span>炸毛小羊</span>
-    </div>
-
-    <div class="game-container">
-        <div class="equipment-box">
-            <div id="equipmentName"></div>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
-                 class="loading" 
-                 id="currentEquipment"
-                 alt="装备图片"
-                 onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';">
-            <div class="controls">
-                <button id="tankBtn" onclick="checkAnswer('肉装')">肉装</button>
-                <button id="damageBtn" onclick="checkAnswer('输出装')">输出装</button>
+  
+        <div style="
+            margin-bottom: 14px;
+            padding: 14px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        ">
+            <div style="
+                font-size: 26px;
+                font-weight: 800;
+                margin-bottom: 12px;
+                color: #111;
+                letter-spacing: 0.5px;
+            ">
+                2025 TOP 
             </div>
-            <div class="feedback" id="feedback"></div>
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
-            </div>
+
+            <iframe 
+                style="border-radius:14px; width:100%;"
+                src="https://open.spotify.com/embed/track/7z2M7DsEjZjwXBkWG3zd21?utm_source=generator&theme=0"
+                height="300"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
         </div>
 
-        <div class="stats-panel">
-            <h2>游戏统计</h2>
-            <div>总题数: <span id="totalCount">0</span></div>
-            <div>正确率: <span id="accuracy">0</span>%</div>
-            <div>当前连胜: <span id="streak">0</span></div>
-            <div>最佳连胜: <span id="bestStreak">0</span></div>
-            <button onclick="restartGame()" style="margin-top: 2rem; background: var(--primary-color); color: white;">
-                重新开始
-            </button>
+
+        <!-- 列表：所有歌曲紧凑排布 -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+
+            <div style="
+                padding: 10px;
+                border-radius: 14px;
+                background: rgba(255,255,255,0.65);
+                backdrop-filter: blur(4px);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            ">
+                <iframe style="border-radius:12px; width:100%;"
+                        src="https://open.spotify.com/embed/track/24beWW0pQCJEF3IVSpIryu?utm_source=generator&theme=0"
+                        height="152" frameBorder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+            </div>
+
+            <div style="
+                padding: 10px;
+                border-radius: 14px;
+                background: rgba(255,255,255,0.65);
+                backdrop-filter: blur(4px);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            ">
+                <iframe style="border-radius:12px; width:100%;"
+                        src="https://open.spotify.com/embed/track/2k3NAOhrpY4DJJlt5XjDKF?utm_source=generator&theme=0"
+                        height="152" frameBorder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+            </div>
+
+            <div style="
+                padding: 10px;
+                border-radius: 14px;
+                background: rgba(255,255,255,0.65);
+                backdrop-filter: blur(4px);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            ">
+                <iframe style="border-radius:12px; width:100%;"
+                        src="https://open.spotify.com/embed/track/0QeMjSDIlWbDG7hoyIeCkI?utm_source=generator&theme=0"
+                        height="152" frameBorder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+            </div>
+
+            <div style="
+                padding: 10px;
+                border-radius: 14px;
+                background: rgba(255,255,255,0.65);
+                backdrop-filter: blur(4px);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            ">
+                <iframe style="border-radius:12px; width:100%;"
+                        src="https://open.spotify.com/embed/track/5dPXSGw7JVkkVCnsAsRzSi?utm_source=generator&theme=0"
+                        height="152" frameBorder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+            </div>
+
         </div>
     </div>
-
-<script>
-// 完整装备数据（来自指定网站）
-const equipmentList = [
-    // 肉装
-    { 
-        name: "狂徒铠甲",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/162252_84847477.png",
-        type: "肉装"
-    },
-    { 
-        name: "泰坦的坚决",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/153812_72286307.png",
-        type: "肉装"
-    },
-    { 
-        name: "冕卫",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/154805_72630413.png",
-        type: "肉装"
-    },
-    { 
-        name: "离子火花",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/154805_56595659.png",
-        type: "肉装"
-    },
-	{ 
-        name: "圣盾使的誓约(",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/155451_71659115.png",
-        type: "肉装"
-    },
-	{ 
-        name: "适应性头盔",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/155451_64587842.png",
-        type: "肉装"
-    },
-	{ 
-        name: "救赎",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/155451_59577191.png",
-        type: "肉装"
-    },
-	{ 
-        name: "棘刺背心",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/160209_43916514.png",
-        type: "肉装"
-    },
-	{ 
-        name: "石像鬼石板甲",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/160209_39988689.png",
-        type: "肉装"
-    },
-	{ 
-        name: "日炎斗篷",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/160209_99551729.png",
-        type: "肉装"
-    },
-	{ 
-        name: "坚定之心",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/160209_55416448.png",
-        type: "肉装"
-    },
-	{ 
-        name: "巨龙之爪",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/161844_60729640.png",
-        type: "肉装"
-    },
-	{ 
-        name: "薄暮法袍",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/161844_21858391.png",
-        type: "肉装"
-    },
-	
-
-    // 输出装
-    { 
-        name: "锐利之刃",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/151801_94870939.png",
-        type: "输出装"
-    },
-    { 
-        name: "巨人捕手",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/151801_38320208.png",
-        type: "输出装"
-    },
-    { 
-        name: "海克斯科技枪刃",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/151801_31356936.png",
-        type: "输出装"
-    },
-    { 
-        name: "朔极之矛",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/151801_81255862.png",
-        type: "输出装"
-    },
-    { 
-        name: "夜之锋刃",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/151801_84581047.png",
-        type: "输出装"
-    },
-    { 
-        name: "汲取剑",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/151801_25313891.png",
-        type: "输出装"
-    },
-    { 
-        name: "斯特拉克的挑战护手",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/151801_77943080.png",
-        type: "输出装"
-    },
-    { 
-        name: "无尽之刃",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/151801_77503258.png",
-        type: "输出装"
-    },
-    { 
-        name: "红霸符",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/153812_38874604.png",
-        type: "输出装"
-    },
-    { 
-        name: "鬼索的狂暴之刃",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/153812_86835505.png",
-        type: "输出装"
-    },
-    { 
-        name: "斯塔缇克电刃",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/153812_35604997.png",
-        type: "输出装"
-    },
-    { 
-        name: "卢安娜的飓风",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/153812_53014048.png",
-        type: "输出装"
-    },
-    { 
-        name: "纳什之牙",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/153812_42880911.png",
-        type: "输出装"
-    },
-    { 
-        name: "最后的轻语",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/153812_74268890.png",
-        type: "输出装"
-    },
-    { 
-        name: "班克斯的魔法帽",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/154805_56288195.png",
-        type: "输出装"
-    },
-    { 
-        name: "大天使之杖",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/154805_16367731.png",
-        type: "输出装"
-    },
-    { 
-        name: "莫雷洛秘典",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/154805_39128779.png",
-        type: "输出装"
-    },
-    { 
-        name: "珠光护手",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/154805_18909158.png",
-        type: "输出装"
-    },
-    { 
-        name: "蓝霸符",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/155451_94269922.png",
-        type: "输出装"
-    },
-    { 
-        name: "正义之手",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/155451_47441064.png",
-        type: "输出装"
-    },
-    { 
-        name: "水银",
-        img: "https://www.hawagame.com/attachment/article/2025/0414/161844_35696006.png",
-        type: "输出装"
-    }
-];
-
-let gameState = {
-    currentIndex: 0,
-    correctCount: 0,
-    totalCount: 0,
-    currentStreak: 0,
-    bestStreak: 0,
-    shuffledList: []
-};
-
-// 初始化游戏
-function initGame() {
-    gameState = {
-        currentIndex: 0,
-        correctCount: 0,
-        totalCount: 0,
-        currentStreak: 0,
-        bestStreak: 0,
-        shuffledList: [...equipmentList].sort(() => Math.random() - 0.5)
-    };
-
-    // 预加载图片
-    equipmentList.forEach(equip => {
-        new Image().src = equip.img;
-    });
-
-    updateStats();
-    showNextEquipment();
-}
-
-function showNextEquipment() {
-    if (gameState.currentIndex >= gameState.shuffledList.length) {
-        endGame();
-        return;
-    }
-
-    const equipment = gameState.shuffledList[gameState.currentIndex];
-    const imgElement = document.getElementById('currentEquipment');
-    
-    imgElement.src = equipment.img;
-    document.getElementById('equipmentName').textContent = equipment.name;
-    
-    // 更新进度条
-    const progress = (gameState.currentIndex / gameState.shuffledList.length) * 100;
-    document.getElementById('progress').style.width = `${progress}%`;
-}
-
-function checkAnswer(userAnswer) {
-    const correctType = gameState.shuffledList[gameState.currentIndex].type;
-    gameState.totalCount++;
-    
-    const feedbackElement = document.getElementById('feedback');
-    if (userAnswer === correctType) {
-        gameState.correctCount++;
-        gameState.currentStreak++;
-        if (gameState.currentStreak > gameState.bestStreak) {
-            gameState.bestStreak = gameState.currentStreak;
-        }
-        feedbackElement.textContent = "✓ 正确！";
-        feedbackElement.className = "correct";
-    } else {
-        gameState.currentStreak = 0;
-        feedbackElement.textContent = `✕ 错误！正确答案：${correctType}`;
-        feedbackElement.className = "wrong";
-    }
-
-    gameState.currentIndex++;
-    updateStats();
-    
-    setTimeout(() => {
-        feedbackElement.textContent = '';
-        showNextEquipment();
-    }, 1200);
-}
-
-function updateStats() {
-    document.getElementById('totalCount').textContent = gameState.totalCount;
-    document.getElementById('accuracy').textContent = 
-        gameState.totalCount ? Math.round((gameState.correctCount / gameState.totalCount) * 100) : 0;
-    document.getElementById('streak').textContent = gameState.currentStreak;
-    document.getElementById('bestStreak').textContent = gameState.bestStreak;
-}
-
-function endGame() {
-    const result = `游戏结束！\n正确率：${Math.round((gameState.correctCount / equipmentList.length) * 100)}%\n最佳连胜：${gameState.bestStreak}`;
-    document.getElementById('feedback').textContent = result;
-    document.getElementById('progress').style.width = '100%';
-}
-
-function restartGame() {
-    initGame();
-    document.getElementById('feedback').textContent = '';
-}
-
-// 启动游戏
-initGame();
-</script>
-</body>
-</html>
+</div>
