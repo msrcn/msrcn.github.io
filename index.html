@@ -1,102 +1,51 @@
-<!-- 整体背景 -->
-<div style="
-    min-height: 100vh;
-    padding: 20px 0;
-    background: linear-gradient(135deg, #eef4ff, #eafaff 45%, #ffffff);
-    display: flex;
-    justify-content: center;
-">
-    <div style="width: 100%; max-width: 650px; padding: 0 16px; font-family: 'Segoe UI','Helvetica Neue',Arial,sans-serif;">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+        #seconds {
+            font-size: 96px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        #date {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
 
-  
-        <div style="
-            margin-bottom: 14px;
-            padding: 14px;
-            border-radius: 18px;
-            background: rgba(255,255,255,0.75);
-            backdrop-filter: blur(6px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-        ">
-            <div style="
-                font-size: 26px;
-                font-weight: 800;
-                margin-bottom: 12px;
-                color: #111;
-                letter-spacing: 0.5px;
-            ">
-                2025 TOP 
-            </div>
+<div id="seconds"></div>
+<div id="date">2071年10月22日</div>
 
-            <iframe 
-                style="border-radius:14px; width:100%;"
-                src="https://open.spotify.com/embed/track/7z2M7DsEjZjwXBkWG3zd21?utm_source=generator&theme=0"
-                height="300"
-                frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy">
-            </iframe>
-        </div>
+<script>
+    const TARGET_DATE = new Date("2071-10-22T00:00:00");
 
+    function update() {
+        const now = new Date();
+        const diff = TARGET_DATE - now;
+        document.getElementById("seconds").innerText =
+            Math.max(0, Math.floor(diff / 1000)).toLocaleString();
+    }
 
-        <!-- 列表：所有歌曲紧凑排布 -->
-        <div style="display: flex; flex-direction: column; gap: 8px;">
+    update();
+    setInterval(update, 1000);
+</script>
 
-            <div style="
-                padding: 10px;
-                border-radius: 14px;
-                background: rgba(255,255,255,0.65);
-                backdrop-filter: blur(4px);
-                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-            ">
-                <iframe style="border-radius:12px; width:100%;"
-                        src="https://open.spotify.com/embed/track/24beWW0pQCJEF3IVSpIryu?utm_source=generator&theme=0"
-                        height="152" frameBorder="0"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-            </div>
-
-            <div style="
-                padding: 10px;
-                border-radius: 14px;
-                background: rgba(255,255,255,0.65);
-                backdrop-filter: blur(4px);
-                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-            ">
-                <iframe style="border-radius:12px; width:100%;"
-                        src="https://open.spotify.com/embed/track/2k3NAOhrpY4DJJlt5XjDKF?utm_source=generator&theme=0"
-                        height="152" frameBorder="0"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-            </div>
-
-            <div style="
-                padding: 10px;
-                border-radius: 14px;
-                background: rgba(255,255,255,0.65);
-                backdrop-filter: blur(4px);
-                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-            ">
-                <iframe style="border-radius:12px; width:100%;"
-                        src="https://open.spotify.com/embed/track/0QeMjSDIlWbDG7hoyIeCkI?utm_source=generator&theme=0"
-                        height="152" frameBorder="0"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-            </div>
-
-            <div style="
-                padding: 10px;
-                border-radius: 14px;
-                background: rgba(255,255,255,0.65);
-                backdrop-filter: blur(4px);
-                box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-            ">
-                <iframe style="border-radius:12px; width:100%;"
-                        src="https://open.spotify.com/embed/track/5dPXSGw7JVkkVCnsAsRzSi?utm_source=generator&theme=0"
-                        height="152" frameBorder="0"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-            </div>
-
-        </div>
-    </div>
-</div>
+</body>
+</html>
